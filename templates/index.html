@@ -1,0 +1,29 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>QR Code Generator</h1>
+        <form method="POST">
+            <label for="link">Enter a URL or Text:</label><br />
+            <input type="text" id="link" name="link" required placeholder="https://example.com" />
+            <button type="submit">Generate QR Code</button>
+        </form>
+
+        {% if data %}
+        <div class="qr-code-container">
+            <object type="image/svg+xml" data="{{ data }}" width="250" height="250"></object>
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>
